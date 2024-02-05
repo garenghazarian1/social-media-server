@@ -13,8 +13,8 @@ connectDB();
 app.use(express.json());
 
 app.use(morgan('dev'));
-app.use(cors());
-
+app.use(cors({origin: '*'}));
+//{ origin: process.env.production ? "https://social-media-client-rho.vercel.app" : 'http://localhost:5173'}
 app.use("/uploads", express.static("uploads"));
 
 app.use('/posts', postRouter);
